@@ -108,6 +108,9 @@ jobs:
              ([[ "${{ github.ref }}" == refs/tags/* ]] && [[ -n "$ALIAS" ]]); then
             mike set-default --push "$ALIAS"
             echo "✅ Versión por defecto → $ALIAS ($VERSION)"
+          elif [[ "$VERSION" == "dev" ]]; then
+            mike set-default --push "dev"
+            echo "✅ Versión por defecto → dev"
           fi
 
       # ── 7. Listar versiones publicadas ────────────────────────────────────
